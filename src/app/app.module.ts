@@ -1,9 +1,13 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+
 import { SharedModule } from './shared/shared.module';
+import { TodosModule } from './todos/todos.module';
+
+import { AppComponent } from './app.component';
 
 
 @NgModule({
@@ -11,9 +15,12 @@ import { SharedModule } from './shared/shared.module';
     AppComponent
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
-    SharedModule
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    SharedModule,
+    TodosModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

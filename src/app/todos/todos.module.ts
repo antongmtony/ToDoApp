@@ -1,26 +1,26 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TodosTableComponent } from './components/todos-table/todos-table.component';
+import { TodosListComponent } from './components/todos-list/todos-list.component';
 import { TodosFilterComponent } from './components/todos-filter/todos-filter.component';
-import { NewTodoComponent } from './components/new-todo/new-todo.component';
-import { DeleteTodoComponent } from './components/delete-todo/delete-todo.component';
 import { TodosPageComponent } from './pages/todos-page/todos-page.component';
+import { TodosFormComponent } from './components/todos-form/todos-form.component';
+import { FormsModule } from '@angular/forms';
 
 
 
 @NgModule({
   declarations: [
-    TodosTableComponent,
+    TodosListComponent,
     TodosFilterComponent,
-    NewTodoComponent,
-    DeleteTodoComponent,
-    TodosPageComponent
+    TodosPageComponent,
+    TodosFormComponent
   ],
   exports: [
     TodosPageComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
 })
 export class TodosModule { }

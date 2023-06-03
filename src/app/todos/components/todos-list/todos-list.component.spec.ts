@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TodosTableComponent } from './todos-table.component';
+import { TodosTableComponent } from './todos-list.component';
 
 describe('TodosTableComponent', () => {
   let component: TodosTableComponent;

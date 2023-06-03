@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+html, body {
+  font-family: 'Montserrat', sans-serif;
+  height: 100%;
+  min-height: 100% !important;
+}
+
+.gradient-custom {
+  background: radial-gradient(50% 123.47% at 50% 50%, #00306C 0%, #195bac 100%),
+  linear-gradient(121.28deg, #0029ff 0%, #008AE7 100%),
+  linear-gradient(360deg, #0029ff 0%, #008AE7 100%),
+  radial-gradient(100% 164.72% at 100% 100%, #008AE7 0%, #0029ff 100%),
+  radial-gradient(100% 148.07% at 0% 0%, #c7cbde 0%, #008AE7 100%);
+  background-blend-mode: screen, color-dodge, overlay, difference, normal;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100% !important;
+  min-height: 100% !important;
+  z-index: -1;
+}
