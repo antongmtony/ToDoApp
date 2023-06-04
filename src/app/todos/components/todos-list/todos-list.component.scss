@@ -1,0 +1,20 @@
+
+.form-check-input {
+  width: 2em;
+  height: 2em;
+}
+
+.list-group-item {
+  background-color: #effcfc;
+}
+
+.btn-delete {
+  display: none;
+  position: absolute;
+  right: -10px;
+  top: -10px;
+}
+
+.list-group-item:hover .btn-delete {
+  display: inline-block;
+}

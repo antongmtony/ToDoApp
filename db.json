@@ -1,40 +1,16 @@
 {
   "todos": [
     {
-      "id": 1,
-      "title": "Tarea 1",
-      "description": "Some Description",
+      "id": "a9cc7a42-4085-482e-ba06-cc0d7c3d2142",
+      "title": "Task 1",
+      "description": "Some description",
       "completed": false
     },
     {
-      "id": 2,
-      "title": "Tarea 2",
-      "description": "Some Other Description",
-      "completed": true
-    },
-    {
-      "title": "A ver ",
-      "description": "Que cojones pasa",
-      "completed": false,
-      "id": 3
-    },
-    {
-      "title": "A ver ",
-      "description": "Que cojones pasa",
-      "completed": false,
-      "id": 4
-    },
-    {
-      "title": "A ver ",
-      "description": "Que cojones pasa",
-      "completed": false,
-      "id": 5
-    },
-    {
-      "title": "A ver ",
-      "description": "Que cojones pasa",
-      "completed": false,
-      "id": 6
+      "id": "30d84a21-6265-47bf-bceb-9e473f4e5ba8",
+      "title": "Task 2",
+      "description": "Some other description",
+      "completed": false
     }
   ]
 }

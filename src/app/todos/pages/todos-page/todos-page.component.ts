@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo } from '../../interfaces/todo.interface';
 import { TodosServiceService } from '../../services/todos-service.service';
+import { v4 as uudiv4 } from 'uuid'
 
 @Component({
   selector: 'todos-page',
@@ -27,6 +28,7 @@ export class TodosPageComponent implements OnInit {
     this.todosService.getTodos().subscribe(
       (data: Todo[]) => {
         this.todos = data;
+        this.todos.reverse();
       }
     )
   }
@@ -35,6 +37,7 @@ export class TodosPageComponent implements OnInit {
     console.log(this.title)
     console.log(this.description)
     const newTodo: Todo = {
+      'id': uudiv4(),
       'title': this.title,
       'description': this.description,
       'completed': false
@@ -42,8 +45,16 @@ export class TodosPageComponent implements OnInit {
     this.todosService.addTodo(newTodo).subscribe(
       (addedTodo: Todo) => {
         this.todos.push(addedTodo);
+        this.todos.reverse();
       }
     )
+
+    this.title = '';
+    this.description = '';
+  }
+
+  completeTodo(todo: Todo): void {
+    todo.completed = true
 
   }
 

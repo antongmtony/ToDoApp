@@ -25,4 +25,7 @@ export class TodosServiceService implements OnInit {
     return this.http.post<Todo>('http://localhost:3000/todos', todo);
   }
 
+  completeTodo(todo: Todo): Observable<Todo> {
+    return this.http.put<Todo>('http://localhost:3000/todos/' + todo.id, todo )
+  }
 }

@@ -15,5 +15,11 @@ export class TodosListComponent {
 
   constructor() {}
 
-  
+  editItem(event: MouseEvent, todo: Todo) {
+    if (event.target) {
+      const element = event.target as HTMLElement;
+      element.setAttribute('contenteditable', 'true');
+    }
+  }
+
 }

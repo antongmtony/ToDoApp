@@ -13,9 +13,11 @@
           <div class="card border">
             <div class="card-body p-4">
               <h4 class="text-center">Add a new task</h4>
-              <div class="d-flex justify-content-center align-items-center mb-4 p-3">
 
-                <div class="form-outline flex-fill col-2 m-2">
+
+              <div class="row">
+
+                <div class="form-outline flex-fill col-12 col-md-2 m-2">
                   <input
                     [(ngModel)]="title"
                     name="title"
@@ -25,7 +27,7 @@
                     placeholder="Title" />
                 </div>
 
-                <div class="form-outline flex-fill col-8 m-2">
+                <div class="form-outline flex-fill col-12 col-md-8 m-2">
                   <input
                     [(ngModel)]="description"
                     name="'description"
@@ -34,12 +36,14 @@
                     class="form-control"
                     placeholder="Description" />
                 </div>
+                <div class="flex-fill col-12 col-md-2 m-2">
 
-                <button
-                  (click)="addTodo()"
-                  class="btn btn-primary ms-2 text-light">
-                  Add task
-                </button>
+                  <button
+                    (click)="addTodo()"
+                    class="btn btn-primary text-center w-100 form-submit">
+                    Add task
+                  </button>
+                </div>
               </div>
 
               <!-- Tabs navs -->
