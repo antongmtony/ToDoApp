@@ -1,66 +1,31 @@
-<!-- Tabs content -->
-<div class="tab-content" id="ex1-content">
+
   <div class="tab-pane fade show active" id="ex1-tabs-1" role="tabpanel"
     aria-labelledby="ex1-tab-1">
 
     <ul class="list-group mb-0">
       <li
-        *ngFor="let todo of todos"
+        *ngFor="let todo of todos; index as i"
         class="list-group-item d-flex justify-content-between align-items-center border-0 mb-2 rounded"
+        [ngClass]="todo.completed ? 'todo-completed' : ''"
         >
           <div>
-            <p>
-              <strong contenteditable="false">{{todo.title}}</strong>
-            </p>
-            <span contenteditable="false">{{todo.description}}</span>
+            <span
+              #descriptionEdit sharedInlineEdit [control]="editDescriptionControl"
+              (onEditEnd)="onEditEnd(i, $event)"
+              >{{todo.description}}</span>
           </div>
 
           <div>
-            <button class="btn">
-              <i class="fas fa-pen"></i>
+            <button class="btn btn-edit">
+              <i class="fas fa-pen d-none d-sm-block" (click)="editDescription(i)"></i>
             </button>
-            <button class="btn btn-delete">
+            <button
+              (click)="deleteTodo(i)"
+              class="btn btn-delete">
               <i class="fas fa-trash"></i>
             </button>
-            <input class="form-check-input" type="checkbox" value="" aria-label="..." />
+            <input class="form-check-input" type="checkbox" (change)="onCheckboxChange(i, todo, $event)" [checked]="todo.completed" />
           </div>
-
-      </li>
-
-    </ul>
-  <!-- </div>
-  <div class="tab-pane fade" id="ex1-tabs-2" role="tabpanel" aria-labelledby="ex1-tab-2">
-    <ul class="list-group mb-0">
-      <li class="list-group-item d-flex align-items-center border-0 mb-2 rounded"
-        style="background-color: #f4f6f7;">
-        <input class="form-check-input me-2" type="checkbox" value="" aria-label="..." />
-        Morbi leo risus
-      </li>
-      <li class="list-group-item d-flex align-items-center border-0 mb-2 rounded"
-        style="background-color: #f4f6f7;">
-        <input class="form-check-input me-2" type="checkbox" value="" aria-label="..." />
-        Porta ac consectetur ac
-      </li>
-      <li class="list-group-item d-flex align-items-center border-0 mb-0 rounded"
-        style="background-color: #f4f6f7;">
-        <input class="form-check-input me-2" type="checkbox" value="" aria-label="..." />
-        Vestibulum at eros
       </li>
     </ul>
   </div>
-  <div class="tab-pane fade" id="ex1-tabs-3" role="tabpanel" aria-labelledby="ex1-tab-3">
-    <ul class="list-group mb-0">
-      <li class="list-group-item d-flex align-items-center border-0 mb-2 rounded"
-        style="background-color: #f4f6f7;">
-        <input class="form-check-input me-2" type="checkbox" value="" aria-label="..." checked />
-        <s>Cras justo odio</s>
-      </li>
-      <li class="list-group-item d-flex align-items-center border-0 mb-2 rounded"
-        style="background-color: #f4f6f7;">
-        <input class="form-check-input me-2" type="checkbox" value="" aria-label="..." checked />
-        <s>Dapibus ac facilisis in</s>
-      </li>
-    </ul>
-  </div> -->
-</div>
-<!-- Tabs content -->

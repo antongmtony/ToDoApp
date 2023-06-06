@@ -11,10 +11,26 @@
 .btn-delete {
   display: none;
   position: absolute;
-  right: -10px;
-  top: -10px;
+  right: 80px;
+  top: 0;
+  font-size: 1.7rem;
 }
 
+.btn-delete:hover {
+  color: red;
+}
 .list-group-item:hover .btn-delete {
   display: inline-block;
+}
+
+
+.btn-edit:hover {
+  color: #2401bd;
+  border: 1px solid #2401bd;
+  border-radius: 25%;
+}
+
+.todo-completed {
+  text-decoration: line-through;
+  opacity: 0.5;
 }

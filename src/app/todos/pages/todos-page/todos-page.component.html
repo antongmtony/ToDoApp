@@ -1,72 +1,80 @@
-<!-- <div class="col"> -->
-  <!-- components -->
-  <!-- <todos-filter></todos-filter>
-  <todos-form></todos-form>
-  <todos-table></todos-table> -->
+<div>
+
+  <div class="card border">
+    <div class="card-body p-4">
+      <h4 class="text-center">Add a new task</h4>
 
 
+      <div class="row">
 
-  <!-- TESTS -->
+        <div class="form-outline flex-fill col-12 col-md-8 m-2">
+          <input (keyup.enter)="addTodo()" [(ngModel)]="description" type="text" class="form-control"
+            placeholder="Enter task description..." />
+        </div>
+        <div class="flex-fill col-12 col-md-2 m-2">
 
-      <div>
+          <button (click)="addTodo()" class="btn btn-primary text-center w-100 form-submit">
+            Add task
+          </button>
+        </div>
+      </div>
 
-          <div class="card border">
-            <div class="card-body p-4">
-              <h4 class="text-center">Add a new task</h4>
+      <div class="d-flex justify-content-start">
+        <div class="d-flex justify-content-around">
+            <p class="m-2 text-info">Total: {{ total }} </p>
+            <p class="m-2 text-warning">Pending: {{ totalPending }}</p>
+        </div>
+      </div>
+      <!-- Tabs navs -->
+      <div class="d-flex justify-content-center">
 
-
-              <div class="row">
-
-                <div class="form-outline flex-fill col-12 col-md-2 m-2">
-                  <input
-                    [(ngModel)]="title"
-                    name="title"
-                    type="text"
-                    id="form2"
-                    class="form-control"
-                    placeholder="Title" />
-                </div>
-
-                <div class="form-outline flex-fill col-12 col-md-8 m-2">
-                  <input
-                    [(ngModel)]="description"
-                    name="'description"
-                    type="text"
-                    id="form2"
-                    class="form-control"
-                    placeholder="Description" />
-                </div>
-                <div class="flex-fill col-12 col-md-2 m-2">
-
-                  <button
-                    (click)="addTodo()"
-                    class="btn btn-primary text-center w-100 form-submit">
-                    Add task
-                  </button>
-                </div>
-              </div>
-
-              <!-- Tabs navs -->
-              <ul class="nav nav-tabs mb-4 pb-2" id="ex1" role="tablist">
-                <li class="nav-item" role="presentation">
-                  <a class="nav-link active" id="ex1-tab-1" data-mdb-toggle="tab" role="tab"
-                    aria-controls="ex1-tabs-1" aria-selected="true">All</a>
-                </li>
-                <li class="nav-item" role="presentation">
-                  <a class="nav-link" id="ex1-tab-2" data-mdb-toggle="tab" role="tab"
-                    aria-controls="ex1-tabs-2" aria-selected="false">Active</a>
-                </li>
-                <li class="nav-item" role="presentation">
-                  <a class="nav-link" id="ex1-tab-3" data-mdb-toggle="tab" role="tab"
-                    aria-controls="ex1-tabs-3" aria-selected="false">Completed</a>
-                </li>
-              </ul>
-              <!-- Tabs navs -->
-
-              <todos-list [todos]="todos"></todos-list>
-
-            </div>
-          </div>
+        <ul class="nav nav-tabs mb-4 pb-2" id="ex1" role="tablist">
+          <li class="nav-item" role="presentation" (click)="getTodos(filterStatus.All)">
+            <a class="nav-link active" data-mdb-toggle="tab" role="tab"
+              [ngClass]="{'active': activeFilter === filterStatus.All}">
+              All
+            </a>
+          </li>
+          <li class="nav-item" role="presentation" (click)="getTodos(filterStatus.Pending)">
+            <a class="nav-link" data-mdb-toggle="tab" role="tab"
+              [ngClass]="{'active': activeFilter === filterStatus.Pending}">
+              Pending
+            </a>
+          </li>
+          <li class="nav-item" role="presentation" (click)="getTodos(filterStatus.Completed)">
+            <a class="nav-link" data-mdb-toggle="tab" role="tab"
+              [ngClass]="{'active': activeFilter === filterStatus.Completed}">
+              Completed
+            </a>
+          </li>
+        </ul>
 
       </div>
-    <!-- </div> -->
+
+      <!-- Tabs navs -->
+
+
+      <shared-loading-spinner
+        class="d-flex justify-content-center"
+        *ngIf="isLoading; else list">
+      </shared-loading-spinner>
+
+      <ng-template #list>
+
+
+        <div *ngIf="todos.length === 0; else items" class="bg bg-info p-3 text-center text-dark">
+          <h6>No ToDos to show</h6>
+        </div>
+
+
+        <ng-template #items>
+          <todos-list [todos]="todos" (todoUpdated)="updateTodo($event)"
+            (todoDeleted)="deleteTodo($event)"></todos-list>
+        </ng-template>
+
+      </ng-template>
+    </div>
+  </div>
+
+</div>
+<!-- </div> -->
